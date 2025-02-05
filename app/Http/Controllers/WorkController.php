@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\work;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class WorkController extends Controller
 {
@@ -20,7 +21,9 @@ class WorkController extends Controller
      */
     public function create()
     {
-        //
+        $workUser = work::where('user_id', '=', Auth::user()->id)->get();
+
+        return view('work/create', compact('workUser'));
     }
 
     /**
@@ -28,7 +31,7 @@ class WorkController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
     }
 
     /**
