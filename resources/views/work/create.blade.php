@@ -1,6 +1,6 @@
 <x-app-layout>
 
-@if($workUser.empty())
+@if($workUser->count()==0)
     <form method="post" action="{{ route('work.store') }}">
     @csrf
         <div>
